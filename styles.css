@@ -1,13 +1,37 @@
 #container {
     display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    width: 870px;
+    height: 870px;
+    margin: auto;
+}
+
+.line {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .square {
     border: 1px solid black;
-    min-width: 50px;
-    min-height: 50px;
+    flex: 1;
 }
 
 .color {
     background-color: pink;
+}
+
+button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 10px 25px;
+    margin-bottom: 10px;
+}
+
+#button-container {
+    text-align: center;
 }
