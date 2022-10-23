@@ -1,5 +1,4 @@
 const container = document.getElementById('container');
-console.log(container);
 
 for (let i = 0; i < 16; i++) {
     let subcontainer = document.createElement('div');
@@ -11,3 +10,11 @@ for (let i = 0; i < 16; i++) {
     }
     container.appendChild(subcontainer);
 }
+
+const squares = document.querySelectorAll('.square');
+
+squares.forEach(square => {
+    square.addEventListener('mouseover', () => {
+        square.classList.toggle('color');
+    })
+});
