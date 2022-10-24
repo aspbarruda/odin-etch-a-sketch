@@ -1,3 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main {
+    display: flex;
+}
+
+#sidebar {
+    background-color: lightskyblue;
+    color: white;
+    padding: 0 20px;
+}
+
 #container {
     display: flex;
     justify-content: center;
@@ -14,12 +28,18 @@
 }
 
 .square {
-    border: 1px solid black;
     flex: 1;
 }
 
 .color {
-    background-color: pink;
+    background-color: black;
+}
+
+#button-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button {
@@ -32,6 +52,6 @@ button {
     margin-bottom: 10px;
 }
 
-#button-container {
-    text-align: center;
+.selected {
+    border: 3px solid red;
 }
