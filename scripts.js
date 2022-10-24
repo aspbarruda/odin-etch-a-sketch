@@ -1,6 +1,7 @@
 const container = document.getElementById('container');
 const sizeButton = document.getElementById('size-button');
 const rgbButton = document.getElementById('rgb-button');
+const clearButton = document.getElementById('clear-all')
 const DEFAULT_SIZE = 16;
 const DEFAULT_MODE = 'classic'
 let n = DEFAULT_SIZE;
@@ -8,7 +9,6 @@ let squares = document.querySelectorAll('.square');
 let mode;
 
 function updateGrid(n=DEFAULT_SIZE) {
-    cleanGrid();
     for (let i = 0; i < n; i++) {
         let subcontainer = document.createElement('div');
         subcontainer.classList = 'line';
@@ -27,11 +27,12 @@ function selectMode (mode = DEFAULT_MODE) {
     else if (mode === 'rgb') rgbGame();
 }
 
-function cleanGrid() {
+function cleanGrid(n) {
     let grid = document.querySelectorAll('.line');
     grid.forEach(element => {
         element.remove();        
     });
+    updateGrid(n);
 }
 
 function classicGame() {
@@ -60,8 +61,7 @@ sizeButton.addEventListener('click', () => {
     do {
         n = prompt('Enter number of squares on one side: ');
     } while(isNaN(n) || n < 1 || n > 100);
-    cleanGrid();
-    updateGrid(n);
+    cleanGrid(n);
 })
 
 rgbButton.addEventListener('click', () => {
@@ -76,12 +76,9 @@ rgbButton.addEventListener('click', () => {
     selectMode(mode);
 })
 
-squares.forEach(square => {
-    square.addEventListener('mouseenter', () => {
-        square.classList.add('color');
-    })
-});
-
+clearButton.addEventListener('click', () => {
+    cleanGrid();
+})
 
 window.onload = () => {
     updateGrid();
